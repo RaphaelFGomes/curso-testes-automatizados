@@ -7,7 +7,6 @@ interface skillsDataTypes {
   profile: { technologies: string[]; roles: string[] };
 }
 const App = () => {
-  const [typedData, setTypedData] = useState<skillsDataTypes>();
   const [ShowAddForm, setShowAddForm] = useState(false);
 
   const [skillData, setSkillData] = useState<skillsDataTypes>({
@@ -121,11 +120,10 @@ const App = () => {
       });
     } else if (fieldName === "developers") {
       setSkillData({ ...skillData, developers: [e.target.value] });
-    } else {
+    } else
       {
         setSkillData({ ...skillData, [fieldName]: e.target.value });
       }
-    }
   }
   function HandleClickAddBtn() {
     setShowAddForm(true);
